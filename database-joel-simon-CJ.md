@@ -117,3 +117,19 @@ FROM country
 WHERE population != 0
 ORDER BY population DESC
 LIMIT 5 -->
+
+<!-- Subqueries: WITH
+
+    Of the countries with the top 10 gnp, which has the smallest population? (HINT: Canada)
+    Of the 10 least populated countries with permament residents (a non-zero population), which has the largest surfacearea? (HINT: Svalbard and Jan Mayen) -->
+    
+<!--     
+WITH highest_gnp AS (
+	SELECT name, population, gnp
+	FROM country
+	ORDER BY gnp DESC
+	LIMIT 10
+)
+SELECT name, population, gnp
+FROM highest_gnp
+ORDER BY population DESC; -->
