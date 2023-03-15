@@ -140,6 +140,26 @@ WHERE name = 'United States'
 "United States"	1776 -->
 
 List the countries in Africa that have a population smaller than 30,000,000 and a life expectancy of more than 45? (HINT: 37 entries)
+
+<!-- SELECT name, population, lifeexpectancy, continent
+FROM country
+WHERE population <= 30000000 AND lifeexpectancy >45 AND continent ='Africa' -->
+
 Which countries are something like a republic? (HINT: Are there 122 or 143?)
+
+<!-- SELECT name, governmentform
+FROM country
+WHERE governmentform
+LIKE '%epublic' -->
+
 Which countries are some kind of republic and achieved independence after 1945? (HINT: 92 entries)
+
+<!-- SELECT name, governmentform, indepyear
+FROM country
+WHERE governmentform LIKE '%epublic' AND indepyear >1945 -->
+
 Which countries achieved independence after 1945 and are not some kind of republic? (HINT: 27 entries) -->
+
+<!-- SELECT name, governmentform, indepyear
+FROM country
+WHERE indepyear >1945 AND governmentform NOT LIKE '%epublic' -->
