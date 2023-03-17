@@ -71,3 +71,38 @@ slate_removal = Person.all
 delete_these = slate_removal.select{|person| person[:last_name] != 'Ross' && person[:last_name] != 'Aument'}
 delete_these.map{|person| person.destroy}
 ```
+
+
+
+Fav movies---------
+
+Create a new Rails application called 'favorite_movies'.
+<!-- rails new favorite_movie -d postgresql -T -->
+Create the database
+
+<!-- favorite_movie % rails db: create   -->
+
+Generate a Movie model with a title attribute and a category attribute
+<!-- favorite_movie % rails db:migrate -->
+
+Challenges
+
+
+Add five entries to the database via the Rails console
+
+Movie.create title:"name of movie", catagory:"Type of movie" do this five times 
+
+Create a migration to add a new column to the database called movie_length
+favorite_movie % rails g migration add_movie_length_string
+
+
+Update the values of the five existing attributes to include a movie_length value
+entries= Movie.all 
+entries.map{|movie|movie.movie_length = '2:00' }
+entries.map{|movie|movie.save}
+
+Generate a migration to rename the column 'category' to 'genre'
+rails g migration change_catagory_to_genre
+updated the migration ruby file 
+using thsi (rename_column :movies, :catagory, :genre)
+ran db:migrate
