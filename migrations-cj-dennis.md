@@ -51,3 +51,9 @@ happy.save
 Generate a migration to rename the column 'category' to 'genre'
 
 $ rails g migration change_category_to_genre
+class ChangeCategoryToGenre < ActiveRecord::Migration[7.0]
+  def change
+    rename_column(:movies, :category, :genre)
+  end
+end
+$ rails db:migrate
