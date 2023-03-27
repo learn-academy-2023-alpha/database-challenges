@@ -37,4 +37,11 @@ RSpec.describe Account, type: :model do
     account_1 = Account.create(username: 'usernam', password: 'password', email: 'name@gmail.com')
     expect(account_1).to_not be_valid
   end
+
+
+it 'is not valid if the password does not have atleast one number.'
+  account = Account.create(username: 'username', password: 'password', email: 'name@gmail.com')
+  expect(account).to_not be_valid
+  
+
 end
