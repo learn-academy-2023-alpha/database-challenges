@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Account, type: :model do
     it 'is valid with valid attributes' do
-    account = Account.create(username: 'Developerguys', password: 'password', email:'devs@google.com')
+    account = Account.create(username: 'Developerguys', password: 'password1', email:'devs@google.com')
     expect(account).to be_valid
   end
   it 'is not valid without username' do
@@ -21,7 +21,13 @@ RSpec.describe Account, type: :model do
     account = Account.create(username: 'Deve', password: 'password', email:'devs@google.com')
     expect(account.errors[:username]).to_not be_empty
   end
-  it 'is not valid if username is not unique' do
+#   it 'is not valid if username is not unique' do
+#     account = Account.create(username: 'Developerguys', password: 'joeyneedsthis...1', email:'devs@google.com')
+#     duplicate = Account.create(username: 'Developerguys', password: 'password', email:'devs@google.com')
+#     expect(duplicate.errors[:username]).to_not be_empty
+#     # expect(account.errors[:username]).to_not be_empty
+#   end
+    it 'is not valid if username is not unique' do
     account = Account.create(username: 'Developerguys', password: 'password', email:'devs@google.com')
     duplicate = Account.create(username: 'Developerguys', password: 'password', email:'devs@google.com')
     expect(duplicate.errors[:username]).to_not be_empty
@@ -36,11 +42,9 @@ RSpec.describe Account, type: :model do
     expect(duplicate.errors[:password]).to_not be_empty
   end
 
-
-
-
-
-
-
+  it 'is not valid if password does not have at least one number' do
+    account = Account.create(username: 'Developerguys', password: 'password', email:'devs@google.com')
+    expect(account.errors[:password]).to_not be_empty
+  end
 end
 
