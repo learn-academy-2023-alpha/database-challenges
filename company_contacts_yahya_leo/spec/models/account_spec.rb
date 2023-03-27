@@ -22,9 +22,23 @@ RSpec.describe Account, type: :model do
     expect(leo.errors[:username]).to_not be_empty
   end
   it 'username needs to be unique.' do
-    leo = Account.create(username: 'yahya', password: '123456', email: 'leo@email.com')
+    leo = Account.create(username: 'leo', password: '123456', email: 'leo@email.com')
     leo2 = Account.create(username: 'leo', password: '123456', email: 'leo@email.com')
     expect(leo.errors[:username]).to_not be_empty
   end
+  it 'password needs to be at least 6 characters long.' do
+    leo = Account.create(username: 'leo', password: '12345', email: 'leo@email.com')
+    expect(leo.errors[:password]).to_not be_empty
+  end
+  it 'password needs to be unique.' do
+    leo = Account.create(username: 'leo', password: '12345', email: 'leo@email.com')
+    leo2 = Account.create(username: 'leo', password: '12245', email: 'leo@email.com')
 
+    expect(leo.errors[:password]).to_not be_empty
+  end
+
+  it 'password must include atleast one integer' do
+    leo = Account.create(username: 'leo', password: 'asdfas', email: 'leo@email.com')
+    expect(leo.errors[:password]).to_not be_empty
+  end
 end
