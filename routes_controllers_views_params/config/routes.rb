@@ -7,5 +7,9 @@ Rails.application.routes.draw do
 get '/ira' => 'home#ira'
 get '/cj' => 'home#cj'
 get '/landing' => 'home#landing'
+get '/cubed/:number' => 'home#cubed'
+get '/evenly/:number1/:number2' => 'home#evenly'
+get '/palindrome/:word' => 'home#palindrome'
+get '/madlib/:noun/:verb/:adjective/:adverb' => 'home#madlib'
 root to: 'home#landing'
 end
