@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   get '/lander' => 'main#lander'
   get '/yahya' => 'main#yahya'
   get '/aaron' => 'main#aaron'
+  get '/cubed' => 'main#cubed'
+  get '/evenly' => 'main#evenly'
+  get '/palindrome' => 'main#palindrome'
+  get '/madlib' => 'main#madlib'
+  get '/evenly_button' => 'main#evenly_button'
 end
