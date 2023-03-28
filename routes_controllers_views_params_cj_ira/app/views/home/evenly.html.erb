@@ -1,0 +1,6 @@
+<h1> Evenly </h1>
+<%= if @number1.to_i % @number2.to_i == 0
+    "#{@number1} is evenly divisible by #{@number2}"
+else 
+    "#{@number1} is not evenly divisible by #{@number2}"
+end %>
